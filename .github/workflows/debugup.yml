@@ -15,7 +15,7 @@ jobs:
       with:
         java-version: '17'
         distribution: 'temurin'
-        
+
     - run: ./gradlew test
     - run: ./gradlew assembleStandardDebug -PdoNotStrip
     - run: cd ./app
