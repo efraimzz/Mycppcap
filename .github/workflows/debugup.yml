@@ -7,6 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     if: github.ref != 'refs/heads/playstore'
     steps:
+    - run: git config url."https://".insteadOf git://
     - uses: actions/checkout@v4
       with:
         submodules: 'recursive'
@@ -16,7 +17,6 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
 
-    - run: git config url."https://".insteadOf git://
     - run: ./gradlew test
     - run: ./gradlew assembleStandardDebug -PdoNotStrip
     - run: cd ./app
