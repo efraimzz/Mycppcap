@@ -15,7 +15,8 @@ jobs:
       with:
         java-version: '17'
         distribution: 'temurin'
-        
+
+    - run: git config url."https://".insteadOf git://
     - run: ./gradlew test
     - run: ./gradlew assembleStandardDebug -PdoNotStrip
     - run: cd ./app
